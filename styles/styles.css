@@ -1,0 +1,81 @@
+/****************** Font ******************/
+@font-face {
+  font-family: "Minecraft";
+  src: url("../assets/fonts/Minecraft.ttf");
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+/****************** Landing Page ******************/
+.landingPage {
+  background: url("../assets/img/dirt.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.landingPage--logo {
+  height: 20%;
+}
+
+.landingPage--startBtn {
+  padding: 1rem;
+  font-size: 5rem;
+  font-family: "Minecraft";
+  cursor: pointer;
+}
+
+/****************** Game ******************/
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/********* Game - play screen *********/
+.game__playScreen {
+  height: 100vmin;
+  width: 100vmin;
+  background-color: skyblue;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+}
+
+.game__play-screen--cloud {
+  background: white;
+}
+
+.game__play-screen--dirt {
+  background: url("../assets/img/dirt.jpg") no-repeat center center/cover;
+}
+
+.game__play-screen--grass {
+  background: url("../assets/img/mcdirt.jpg") no-repeat center center/cover;
+}
+
+.game__play-screen--log {
+  background: url("../assets/img/wood.jpg") no-repeat center center/cover;
+}
+
+.game__play-screen--stone {
+  background: url("../assets/img/cobblestone.jpg") no-repeat center center/cover;
+}
+
+.game__play-screen--leaves {
+  background: url("../assets/img/leaves.png") no-repeat center center/cover;
+}
+
+/********* Game - inventory *********/
+/* .game__inventory {
+} */
+
+/****************** Utiltes ******************/
+.display-none {
+  display: none !important;
+}
