@@ -6,8 +6,18 @@ inventory.addEventListener("click", (event) => {
   myGame.clickedOnInventory = true;
   if (!inventory.classList.value) {
     myGame.isEmptyInventory = true;
-  } 
-  else {
+  } else {
     myGame.isEmptyInventory = false;
-  } 
+  }
 });
+
+export function inventoryClasses(eTargetClass) {
+  inventory.classList = "";
+  inventory.classList.add(`${eTargetClass}`);
+}
+
+export function resetInventory() {
+  inventory.classList = "";
+  myGame.clickedOnInventory = false;
+  myGame.isEmptyInventory = true;
+}
