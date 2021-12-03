@@ -1,10 +1,11 @@
 import { myGame, gameBoard } from "./game.js";
 import { classObj } from "./gameBoard.js";
+import { inventory } from "./inventory.js";
 
 const pickaxe = document.querySelector(`button[data-tool="pickaxe"]`);
 const shovel = document.querySelector(`button[data-tool="shovel"]`);
 const axe = document.querySelector(`button[data-tool="axe"]`);
-const inventory = document.querySelector(`.inventory`);
+
 
 pickaxe.addEventListener("click", (event) => {
   //   removeActiveClass(pickaxe, shovel, axe);
