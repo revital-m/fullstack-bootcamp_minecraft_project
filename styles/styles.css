@@ -115,6 +115,14 @@ body {
   background: wheat;
 }
 
+.border--red {
+  border: 0.2rem solid red;
+}
+
+.border--blue {
+  border: 0.2rem solid blue;
+}
+
 /****************** Utiltes ******************/
 .display-none {
   display: none !important;

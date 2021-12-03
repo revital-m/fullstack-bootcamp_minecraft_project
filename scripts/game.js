@@ -1,4 +1,7 @@
 import { draw } from "./gameBoard.js";
+import {  } from "./inventory.js";
+import {  } from "./reset.js";
+import {  } from "./tools.js";
 
 const landingPage = document.querySelector(".landingPage");
 const gameBoard = document.querySelector(".gameBoard");
@@ -15,3 +18,5 @@ startBtn.addEventListener("click", () => {
   gameBoard.classList.toggle("display-none");
   draw();
 });
+
+
