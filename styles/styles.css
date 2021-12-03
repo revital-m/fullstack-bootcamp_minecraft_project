@@ -4,6 +4,11 @@
   src: url("../assets/fonts/Minecraft.ttf");
 }
 
+@font-face {
+  font-family: "NotoSans-Bold";
+  src: url("../assets/fonts/NotoSans-Bold.woff2");
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -34,6 +39,46 @@ body {
   font-size: 5rem;
   font-family: "Minecraft";
   cursor: pointer;
+  background: wheat;
+}
+
+.landingPage__tutorial {
+  background: rgba(0, 0, 0, 0.699);
+  color: wheat;
+  padding: 3rem;
+  font-size: 1.8rem;
+  font-family: "NotoSans-Bold";
+  height: 60vh;
+  width: 50vw;
+}
+
+.landingPage__tutorial > ul {
+  list-style-type: square;
+  padding-left: 5rem;
+  margin: 2rem;
+}
+
+.landingPage__tutorial > ul > li {
+  display: flex;
+}
+
+.landingPage__tutorial > ul > li > img {
+  width: 4rem;
+}
+
+.landingPage__tutorial--tools {
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+}
+
+.landingPage__tutorial > p {
+  line-height: 1.8;
+  margin: 1rem;
+}
+
+.landingPage__tutorial--enjoy {
+  text-align: center;
+  font-size: 3rem;
 }
 
 /****************** Game - btn info ******************/

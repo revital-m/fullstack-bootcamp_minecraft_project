@@ -1,5 +1,6 @@
 import { myGame } from "./game.js";
-import { axe, pickaxe, shovel } from "./tools.js";
+import { resetToolsBorder } from "./reset.js";
+// import { axe, pickaxe, shovel } from "./tools.js";
 
 export const inventory = document.querySelector(`#inventory`);
 
@@ -10,12 +11,7 @@ inventory.addEventListener("click", (event) => {
   } else {
     myGame.isEmptyInventory = false;
   }
-  pickaxe.classList.remove("border--red");
-  pickaxe.classList.remove("border--blue");
-  shovel.classList.remove("border--red");
-  shovel.classList.remove("border--blue");
-  axe.classList.remove("border--red");
-  axe.classList.remove("border--blue");
+  resetToolsBorder();
 });
 
 export function inventoryClasses(eTargetClass) {
@@ -23,8 +19,4 @@ export function inventoryClasses(eTargetClass) {
   inventory.classList.add(`${eTargetClass}`);
 }
 
-export function resetInventory() {
-  inventory.classList = "";
-  myGame.clickedOnInventory = false;
-  myGame.isEmptyInventory = true;
-}
+

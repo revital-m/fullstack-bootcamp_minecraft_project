@@ -1,11 +1,11 @@
-import { draw } from "./gameBoard.js";
+import { blocksMatrix, draw, gameBoard } from "./gameBoard.js";
 import {  } from "./inventory.js";
 import {  } from "./reset.js";
 import {  } from "./tools.js";
 
 const landingPage = document.querySelector(".landingPage");
 const startBtn = document.querySelector(".landingPage--startBtn");
-export const gameBoard = document.querySelector(".gameBoard");
+// export const gameBoard = document.querySelector(".gameBoard");
 
 export let myGame = {
   selectedTool: "",
@@ -16,7 +16,7 @@ export let myGame = {
 startBtn.addEventListener("click", () => {
   landingPage.classList.toggle("display-none");
   gameBoard.classList.toggle("display-none");
-  draw();
+  draw(blocksMatrix);
 });
 
 
