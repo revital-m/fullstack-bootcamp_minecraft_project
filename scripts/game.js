@@ -1,12 +1,10 @@
-import { draw } from "../scripts/playScreen.js";
+import { draw } from "./gameBoard.js";
 
 const landingPage = document.querySelector(".landingPage");
-const game = document.querySelector(".game");
+const gameBoard = document.querySelector(".gameBoard");
 const startBtn = document.querySelector(".landingPage--startBtn");
-const playScreen = document.querySelector(".game__playScreen");
-const inventory = document.querySelector(".game__inventory");
 
-let myGame = {
+export let myGame = {
   selectedTool: "",
   clickedOnInventory: false,
   isEmptyInventory: true,
@@ -14,6 +12,6 @@ let myGame = {
 
 startBtn.addEventListener("click", () => {
   landingPage.classList.toggle("display-none");
-  game.classList.toggle("display-none");
+  gameBoard.classList.toggle("display-none");
   draw();
 });

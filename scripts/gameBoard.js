@@ -1,12 +1,12 @@
-const playScreen = document.querySelector(".game__playScreen");
+const gameBoard = document.querySelector(".gameBoard");
 
 const classObj = {
-    stone: "game__play-screen--stone",
-    dirt: "game__play-screen--dirt",
-    grass: "game__play-screen--grass",
-    log: "game__play-screen--log",
-    leaves: "game__play-screen--leaves",
-    cloud: "game__play-screen--cloud",
+    stone: "gameBoard--stone",
+    dirt: "gameBoard--dirt",
+    grass: "gameBoard--grass",
+    log: "gameBoard--log",
+    leaves: "gameBoard--leaves",
+    cloud: "gameBoard--cloud",
 }
 
 const blocksMatrix = [
@@ -56,7 +56,7 @@ export function draw() {
                   block.classList.add(classObj.cloud);
                   break;
               }
-            playScreen.appendChild(block);
+            gameBoard.appendChild(block);
         }
     }
 }

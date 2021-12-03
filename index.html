@@ -9,33 +9,32 @@
     <title>Minecraft</title>
   </head>
   <body>
-    <div class="landingPage">
-      <img class="landingPage--logo" src="./assets/img/Minecraft_logo.png" alt="Minecraft Logo" />
-      <button class="landingPage--startBtn">Start</button>
-    </div>
+    <div class="container">
+      <div class="landingPage">
+        <img
+          class="landingPage--logo"
+          src="./assets/img/Minecraft_logo.png"
+          alt="Minecraft Logo"
+        />
+        <button class="landingPage--startBtn">Start</button>
+      </div>
 
-    <div class="game display-none">
-      <div class="game__playScreen "></div>
-      <div class="game__inventory "></div>
+      <div class="gameBoard display-none"></div>
+    </div>
+    <div class="btnInfo">
+      <button data-tool="pickaxe" class="btn">
+        <img src="./assets/img/pickaxe.png" alt="pickaxe" />
+        pickaxe
+      </button>
+      <button data-tool="shovel" class="btn">
+        <img src="./assets/img/shovel.png" alt="shovel" />shovel
+      </button>
+      <button data-tool="axe" class="btn">
+        <img src="./assets/img/axe.png" alt="axe" />axe
+      </button>
+      <div class="inventory"></div>
+      <button class="btn--reset">reset</button>
     </div>
   </body>
   <script src="./scripts/game.js" type="module"></script>
 </html>
-
-<!-- background:
-  
-  html:
-  grid (matrix)
-  
-  js:
-  divs inside the grid, will give them different classes with the img as background.
-
-  css:
-  class-sky: background img sky
-  class-dirt: background img dirt
-  class-leaves: background img leaves
-  class-tree: background img tree
-  class-cloud: background img cloud
-  class-grass: background img grass
-  class-stone: background img stone
--->
