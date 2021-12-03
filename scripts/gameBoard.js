@@ -1,6 +1,6 @@
 const gameBoard = document.querySelector(".gameBoard");
 
-const classObj = {
+export const classObj = {
     stone: "gameBoard--stone",
     dirt: "gameBoard--dirt",
     grass: "gameBoard--grass",
