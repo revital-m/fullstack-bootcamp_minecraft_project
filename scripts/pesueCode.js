@@ -1,3 +1,21 @@
+/** background:
+  
+  html:
+  grid (matrix)
+  
+  js:
+  divs inside the grid, will give them different classes with the img as background.
+
+  css:
+  class-sky: background img sky
+  class-dirt: background img dirt
+  class-leaves: background img leaves
+  class-tree: background img tree
+  class-cloud: background img cloud
+  class-grass: background img grass
+  class-stone: background img stone
+*/
+
 //landing page:
 // button with eventlistner of click ~ 15min
 //css design ~ 15min

@@ -1,4 +1,8 @@
-const gameBoard = document.querySelector(".gameBoard");
+import { myGame } from "./game.js";
+import { axe, pickaxe, shovel } from "./tools.js";
+import { inventory, inventoryClasses, resetInventory } from "./inventory.js";
+
+export const gameBoard = document.querySelector(".gameBoard");
 
 export const classObj = {
     stone: "gameBoard--stone",
@@ -60,3 +64,44 @@ export function draw() {
         }
     }
 }
+
+
+gameBoard.addEventListener("click", (e) => {
+  switch (myGame.selectedTool) {
+    case "pickaxe":
+      if (e.target.classList.value === classObj.stone) {
+        inventoryClasses(e.target.classList.value);
+        pickaxe.classList.remove("border--red");
+        e.target.classList = "";
+      } else pickaxe.classList.add("border--red");
+      break;
+
+    case "shovel":
+      if (
+        e.target.classList.value === classObj.dirt ||
+        e.target.classList.value === classObj.grass
+      ) {
+        inventoryClasses(e.target.classList.value);
+        shovel.classList.remove("border--red");
+        e.target.classList = "";
+      } else shovel.classList.add("border--red");
+      break;
+
+    case "axe":
+      if (
+        e.target.classList.value === classObj.log ||
+        e.target.classList.value === classObj.leaves
+      ) {
+        inventoryClasses(e.target.classList.value);
+        axe.classList.remove("border--red");
+        e.target.classList = "";
+      } else axe.classList.add("border--red");
+      break;
+  }
+
+  if (myGame.clickedOnInventory && !myGame.isEmptyInventory) {
+    e.target.classList = "";
+    e.target.classList.add(`${inventory.classList.value}`);
+    resetInventory();
+  }
+});
