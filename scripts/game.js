@@ -1,7 +1,7 @@
 import { draw, gameBoard } from "./gameBoard.js";
-import {  } from "./inventory.js";
-import {  } from "./reset.js";
-import {  } from "./tools.js";
+import {} from "./inventory.js";
+import {} from "./reset.js";
+import {} from "./tools.js";
 import { lightMatrix, nightMatrix } from "./worlds.js";
 
 const landingPage = document.querySelector(".landingPage");
@@ -23,5 +23,3 @@ startBtn.addEventListener("click", () => {
   gameBoard.classList.toggle("display-none");
   draw(myGame.worldMetrix);
 });
-
-

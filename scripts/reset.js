@@ -9,7 +9,7 @@ import {
   toolsBtn,
 } from "./inventory.js";
 import { pickaxe, shovel, axe } from "./tools.js";
-import { lightMatrix , nightMatrix } from "./worlds.js";
+import { lightMatrix, nightMatrix } from "./worlds.js";
 
 export const resetGameBtn = document.querySelector(".btn--reset");
 

@@ -16,7 +16,8 @@
   </head>
   <body>
     <div class="container">
-      <div class="landingPage">
+      <!----------------------- landingPage ----------------------->
+      <div class="landingPage display-flex">
         <img
           class="landingPage--logo"
           src="./assets/img/Minecraft_logo.png"
@@ -57,16 +58,18 @@
         </div>
         <button class="landingPage--startBtn btn-hover">Start</button>
       </div>
-
+      <!----------------------- gameBoard ----------------------->
       <div id="gameBoard" class="display-none"></div>
     </div>
-    <div class="btnInfo">
+    <div class="btnInfo display-flex">
+      <!----------------------- worlds ----------------------->
       <div class="btn worlds btn-hover">change world</div>
-      <div class="worlds-container display-none">
+      <div dtat-id="worlds-container" class="display-flex display-none">
         <button data-world="lightMode" class="btn btn-hover">light mode</button>
         <button data-world="darkMode" class="btn btn-hover">dark mode</button>
       </div>
-      <div class="btnInfo__tools">
+      <!----------------------- tools ----------------------->
+      <div dtat-id="btnInfo__tools" class="display-flex">
         <button data-tool="pickaxe" class="btn btn-hover">
           <img src="./assets/img/pickaxe.png" alt="pickaxe" />
           pickaxe
@@ -78,6 +81,7 @@
           <img src="./assets/img/axe.png" alt="axe" />axe
         </button>
       </div>
+      <!----------------------- inventory ----------------------->
       <ul class="inventoryContainer display-none">
         <li>
           <div data-inventory="stone" class="inventory"></div>
@@ -102,6 +106,7 @@
       </ul>
       <div id="inventory" class="btn btn-hover">see inventory</div>
       <div class="closeInventory btn-hover display-none">&Cross;</div>
+      <!----------------------- reset ----------------------->
       <button class="btn--reset btn-hover">reset</button>
     </div>
   </body>

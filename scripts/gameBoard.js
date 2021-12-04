@@ -5,7 +5,7 @@ import {
   isInventoryEmpty,
   removeItemFromInventory,
 } from "./inventory.js";
-import { lightMatrix , nightMatrix } from "./worlds.js";
+import { lightMatrix, nightMatrix } from "./worlds.js";
 
 export const gameBoard = document.querySelector("#gameBoard");
 

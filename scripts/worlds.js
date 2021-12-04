@@ -4,7 +4,7 @@ import { inventory, toolsBtn } from "./inventory.js";
 import { resetGameBtn, resetInventory, resetTools } from "./reset.js";
 
 export const worldsBtn = document.querySelector(".worlds");
-const worldsContainer = document.querySelector(".worlds-container");
+const worldsContainer = document.querySelector('[dtat-id="worlds-container"]');
 const lightMode = document.querySelector('[data-world="lightMode"]');
 const darkMode = document.querySelector('[data-world="darkMode"]');
 

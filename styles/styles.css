@@ -36,13 +36,17 @@ body {
   border: 0.5rem solid rgb(184, 184, 184);
 }
 
+.display-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /****************** Landing Page ******************/
 .landingPage {
   background: url("../assets/img/dirt.jpg");
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   height: 100%;
   width: 87vw;
 }
@@ -99,26 +103,8 @@ body {
 
 /****************** Game - btn info ******************/
 .btnInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 0 5rem;
   background: black;
-}
-
-.worlds-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.btnInfo__tools {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .btn {

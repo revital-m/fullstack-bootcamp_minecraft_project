@@ -8,17 +8,24 @@ const inventoryDirt = document.querySelector(`[data-inventory="dirt"]`);
 const inventoryGrass = document.querySelector(`[data-inventory="grass"]`);
 const inventoryLog = document.querySelector(`[data-inventory="log"]`);
 const inventoryLeaves = document.querySelector(`[data-inventory="leaves"]`);
-const inventoryStoneCount = document.querySelector(`[data-inventoryCount="stone"]`);
-const inventoryDirtCount = document.querySelector(`[data-inventoryCount="dirt"]`);
-const inventoryGrassCount = document.querySelector(`[data-inventoryCount="grass"]`);
+const inventoryStoneCount = document.querySelector(
+  `[data-inventoryCount="stone"]`
+);
+const inventoryDirtCount = document.querySelector(
+  `[data-inventoryCount="dirt"]`
+);
+const inventoryGrassCount = document.querySelector(
+  `[data-inventoryCount="grass"]`
+);
 const inventoryLogCount = document.querySelector(`[data-inventoryCount="log"]`);
-const inventoryLeavesCount = document.querySelector(`[data-inventoryCount="leaves"]`);
+const inventoryLeavesCount = document.querySelector(
+  `[data-inventoryCount="leaves"]`
+);
 
 export const inventory = document.querySelector(`#inventory`);
 export const inventoryContainer = document.querySelector(`.inventoryContainer`);
-export const toolsBtn = document.querySelector(`.btnInfo__tools`);
+export const toolsBtn = document.querySelector(`[dtat-id="btnInfo__tools"]`);
 export const closeInventory = document.querySelector(`.closeInventory`);
-
 
 export const inventoryObj = {
   stone: {
@@ -60,41 +67,40 @@ inventory.addEventListener("click", (e) => {
   displayNoneInventory();
 });
 
-closeInventory.addEventListener("click", (e) => { 
+closeInventory.addEventListener("click", (e) => {
   myGame.isInventoryClose = true;
   displayNoneInventory();
 });
 
 function displayNoneInventory() {
-  inventoryContainer.classList.toggle('display-none');
-  toolsBtn.classList.toggle('display-none');
-  closeInventory.classList.toggle('display-none');
-  inventory.classList.toggle('display-none');
-  worldsBtn.classList.toggle('display-none');
+  inventoryContainer.classList.toggle("display-none");
+  toolsBtn.classList.toggle("display-none");
+  closeInventory.classList.toggle("display-none");
+  inventory.classList.toggle("display-none");
+  worldsBtn.classList.toggle("display-none");
 }
 
-
-inventoryStone.addEventListener("click", (e) => { 
+inventoryStone.addEventListener("click", (e) => {
   myGame.inventoryItemClickOn = inventoryObj.stone;
   myGame.inventoryItemClickOnClass = inventoryStone.classList[1];
 });
 
-inventoryDirt.addEventListener("click", (e) => { 
+inventoryDirt.addEventListener("click", (e) => {
   myGame.inventoryItemClickOn = inventoryObj.dirt;
   myGame.inventoryItemClickOnClass = inventoryDirt.classList[1];
 });
 
-inventoryGrass.addEventListener("click", (e) => { 
+inventoryGrass.addEventListener("click", (e) => {
   myGame.inventoryItemClickOn = inventoryObj.grass;
   myGame.inventoryItemClickOnClass = inventoryGrass.classList[1];
 });
 
-inventoryLog.addEventListener("click", (e) => { 
+inventoryLog.addEventListener("click", (e) => {
   myGame.inventoryItemClickOn = inventoryObj.log;
   myGame.inventoryItemClickOnClass = inventoryLog.classList[1];
 });
 
-inventoryLeaves.addEventListener("click", (e) => { 
+inventoryLeaves.addEventListener("click", (e) => {
   myGame.inventoryItemClickOn = inventoryObj.leaves;
   myGame.inventoryItemClickOnClass = inventoryLeaves.classList[1];
 });
@@ -146,27 +152,31 @@ export function inventoryClasses(eTargetClass) {
   }
 }
 
-export function removeItemFromInventory(item){
+export function removeItemFromInventory(item) {
   if (item.itemCount > 1) {
     item.itemCount--;
-  }
-  else if (item.itemCount === 1) {
+  } else if (item.itemCount === 1) {
     item.itemCount = 0;
     item.isEmpty = true;
     item.itemName.classList = "";
-    item.itemName.classList.add('inventory');
+    item.itemName.classList.add("inventory");
   }
   item.itemNameCount.innerText = ` ${item.itemCount}`;
 }
 
-export function isInventoryEmpty(){
-  if(inventoryObj.stone.itemCount === 0 && inventoryObj.dirt.itemCount === 0 && inventoryObj.grass.itemCount === 0 && inventoryObj.log.itemCount === 0 && inventoryObj.leaves.itemCount === 0){
+export function isInventoryEmpty() {
+  if (
+    inventoryObj.stone.itemCount === 0 &&
+    inventoryObj.dirt.itemCount === 0 &&
+    inventoryObj.grass.itemCount === 0 &&
+    inventoryObj.log.itemCount === 0 &&
+    inventoryObj.leaves.itemCount === 0
+  ) {
     myGame.isEmptyInventory = true;
     while (inventory.classList.contains("border--green")) {
       inventory.classList.remove("border--green");
     }
-  }
-  else {
+  } else {
     myGame.isEmptyInventory = false;
   }
 }
