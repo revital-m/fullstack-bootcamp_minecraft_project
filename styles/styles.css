@@ -129,10 +129,12 @@ body {
 
 .closeInventory {
   color: black;
-  font-size: 5rem;
+  font-size: 3rem;
+  margin: 2rem 3rem 0 0;
   background: white;
-  text-align: center;
   border: 0.5rem solid wheat;
+  padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 .inventoryContainer {
