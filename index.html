@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./styles/my_normalize.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
     <title>Minecraft</title>
@@ -20,20 +26,33 @@
           <p>You have 3 types of tools:</p>
           <ul>
             <li>
-              <img src="./assets/img/pickaxe.png" alt="pickaxe">
-              <p class="landingPage__tutorial--tools"> Pickaxe - for mining rocks.</p>
+              <img src="./assets/img/pickaxe.png" alt="pickaxe" />
+              <p class="landingPage__tutorial--tools">
+                Pickaxe - for mining rocks.
+              </p>
             </li>
             <li>
-              <img src="./assets/img/Shovel.png" alt="Shovel">
-              <p class="landingPage__tutorial--tools"> Shovel - for digging dirt.</p>
+              <img src="./assets/img/Shovel.png" alt="Shovel" />
+              <p class="landingPage__tutorial--tools">
+                Shovel - for digging dirt.
+              </p>
             </li>
             <li>
-              <img src="./assets/img/axe.png" alt="axe">
-              <p class="landingPage__tutorial--tools"> Axe - for cutting trees.</p>
+              <img src="./assets/img/axe.png" alt="axe" />
+              <p class="landingPage__tutorial--tools">
+                Axe - for cutting trees.
+              </p>
             </li>
           </ul>
-          <p>Clicking on a tool followed by clicking on a tile in the world will remove the tile, (If it is of the correct type) and add it to the inventory.</p>
-          <p>You can also click on the tile in the inventory and place it back in the world.</p>
+          <p>
+            Clicking on a tool followed by clicking on a tile in the world will
+            remove the tile, (If it is of the correct type) and add it to the
+            inventory.
+          </p>
+          <p>
+            You can also click on the tile in the inventory and place it back in
+            the world.
+          </p>
           <p class="landingPage__tutorial--enjoy">Enjoy!</p>
         </div>
         <button class="landingPage--startBtn">Start</button>
@@ -42,17 +61,42 @@
       <div class="gameBoard display-none"></div>
     </div>
     <div class="btnInfo">
-      <button data-tool="pickaxe" class="btn">
-        <img src="./assets/img/pickaxe.png" alt="pickaxe" />
-        pickaxe
-      </button>
-      <button data-tool="shovel" class="btn">
-        <img src="./assets/img/shovel.png" alt="shovel" />shovel
-      </button>
-      <button data-tool="axe" class="btn">
-        <img src="./assets/img/axe.png" alt="axe" />axe
-      </button>
-      <div id="inventory" class="inventory"></div>
+      <div class="btnInfo__tools">
+        <button data-tool="pickaxe" class="btn">
+          <img src="./assets/img/pickaxe.png" alt="pickaxe" />
+          pickaxe
+        </button>
+        <button data-tool="shovel" class="btn">
+          <img src="./assets/img/shovel.png" alt="shovel" />shovel
+        </button>
+        <button data-tool="axe" class="btn">
+          <img src="./assets/img/axe.png" alt="axe" />axe
+        </button>
+      </div>
+        <ul class="inventoryContainer display-none">
+          <li>
+            <div data-inventory="stone" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="stone">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="dirt" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="dirt">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="grass" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="grass">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="log" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="log">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="leaves" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="leaves">0</span></p>
+          </li>
+        </ul>
+      <div id="inventory" class="btn">see inventory</div>
+      <div class="btn closeInventory display-none">&Cross;</div>
       <button class="btn--reset">reset</button>
     </div>
   </body>

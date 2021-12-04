@@ -5,12 +5,14 @@ import {  } from "./tools.js";
 
 const landingPage = document.querySelector(".landingPage");
 const startBtn = document.querySelector(".landingPage--startBtn");
-// export const gameBoard = document.querySelector(".gameBoard");
 
 export let myGame = {
   selectedTool: "",
   clickedOnInventory: false,
   isEmptyInventory: true,
+  inventoryItemClickOn: "",
+  inventoryItemClickOnClass: "",
+  isInventoryClose: true,
 };
 
 startBtn.addEventListener("click", () => {

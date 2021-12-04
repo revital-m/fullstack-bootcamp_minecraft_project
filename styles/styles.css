@@ -91,6 +91,13 @@ body {
   background: black;
 }
 
+.btnInfo__tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn {
   padding: 0.5rem;
   font-size: 1.5rem;
@@ -104,16 +111,43 @@ body {
 }
 
 .btn img,
-#inventory {
+.inventory {
   height: 4rem;
   width: 4rem;
 }
 
-#inventory {
+.inventory {
   margin: 3rem 1rem 0 1rem;
   border: 0.2rem solid white;
   cursor: pointer;
-  /* background: wheat; */
+}
+
+#inventory {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.closeInventory {
+  color: black;
+  font-size: 5rem;
+  background: white;
+  text-align: center;
+  border: 0.5rem solid wheat;
+}
+
+.inventoryContainer {
+  list-style-type: none;
+}
+
+.inventoryContainer > li > p {
+  color: white;
+  font-size: 2rem;
+  padding-top: 3rem;
+}
+
+.inventoryContainer > li {
+  display: flex;
+  align-items: center;
 }
 
 .btn--reset {
@@ -124,6 +158,10 @@ body {
   cursor: pointer;
   border: 0.5rem solid white;
   background: wheat;
+}
+
+.border--green {
+  border: 0.5rem solid rgb(0, 255, 76);
 }
 
 .border--blue {
