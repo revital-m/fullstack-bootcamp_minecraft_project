@@ -55,49 +55,54 @@
           </p>
           <p class="landingPage__tutorial--enjoy">Enjoy!</p>
         </div>
-        <button class="landingPage--startBtn">Start</button>
+        <button class="landingPage--startBtn btn-hover">Start</button>
       </div>
 
-      <div class="gameBoard display-none"></div>
+      <div id="gameBoard" class="display-none"></div>
     </div>
     <div class="btnInfo">
+      <div class="btn worlds btn-hover">change world</div>
+      <div class="worlds-container display-none">
+        <button data-world="lightMode" class="btn btn-hover">light mode</button>
+        <button data-world="darkMode" class="btn btn-hover">dark mode</button>
+      </div>
       <div class="btnInfo__tools">
-        <button data-tool="pickaxe" class="btn">
+        <button data-tool="pickaxe" class="btn btn-hover">
           <img src="./assets/img/pickaxe.png" alt="pickaxe" />
           pickaxe
         </button>
-        <button data-tool="shovel" class="btn">
+        <button data-tool="shovel" class="btn btn-hover">
           <img src="./assets/img/shovel.png" alt="shovel" />shovel
         </button>
-        <button data-tool="axe" class="btn">
+        <button data-tool="axe" class="btn btn-hover">
           <img src="./assets/img/axe.png" alt="axe" />axe
         </button>
       </div>
-        <ul class="inventoryContainer display-none">
-          <li>
-            <div data-inventory="stone" class="inventory"></div>
-            <p>&Cross; <span data-inventoryCount="stone">0</span></p>
-          </li>
-          <li>
-            <div data-inventory="dirt" class="inventory"></div>
-            <p>&Cross; <span data-inventoryCount="dirt">0</span></p>
-          </li>
-          <li>
-            <div data-inventory="grass" class="inventory"></div>
-            <p>&Cross; <span data-inventoryCount="grass">0</span></p>
-          </li>
-          <li>
-            <div data-inventory="log" class="inventory"></div>
-            <p>&Cross; <span data-inventoryCount="log">0</span></p>
-          </li>
-          <li>
-            <div data-inventory="leaves" class="inventory"></div>
-            <p>&Cross; <span data-inventoryCount="leaves">0</span></p>
-          </li>
-        </ul>
-      <div id="inventory" class="btn">see inventory</div>
-      <div class="closeInventory display-none">&Cross;</div>
-      <button class="btn--reset">reset</button>
+      <ul class="inventoryContainer display-none">
+        <li>
+          <div data-inventory="stone" class="inventory"></div>
+          <p>&Cross; <span data-inventoryCount="stone">0</span></p>
+        </li>
+        <li>
+          <div data-inventory="dirt" class="inventory"></div>
+          <p>&Cross; <span data-inventoryCount="dirt">0</span></p>
+        </li>
+        <li>
+          <div data-inventory="grass" class="inventory"></div>
+          <p>&Cross; <span data-inventoryCount="grass">0</span></p>
+        </li>
+        <li>
+          <div data-inventory="log" class="inventory"></div>
+          <p>&Cross; <span data-inventoryCount="log">0</span></p>
+        </li>
+        <li>
+          <div data-inventory="leaves" class="inventory"></div>
+          <p>&Cross; <span data-inventoryCount="leaves">0</span></p>
+        </li>
+      </ul>
+      <div id="inventory" class="btn btn-hover">see inventory</div>
+      <div class="closeInventory btn-hover display-none">&Cross;</div>
+      <button class="btn--reset btn-hover">reset</button>
     </div>
   </body>
   <script src="./scripts/game.js" type="module"></script>

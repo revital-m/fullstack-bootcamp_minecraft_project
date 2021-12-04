@@ -1,5 +1,5 @@
 import { myGame } from "./game.js";
-import { blocksMatrix, draw, gameBoard } from "./gameBoard.js";
+import { draw, gameBoard } from "./gameBoard.js";
 import {
   closeInventory,
   inventory,
@@ -9,12 +9,16 @@ import {
   toolsBtn,
 } from "./inventory.js";
 import { pickaxe, shovel, axe } from "./tools.js";
+import { lightMatrix , nightMatrix } from "./worlds.js";
 
-const resetGameBtn = document.querySelector(".btn--reset");
+export const resetGameBtn = document.querySelector(".btn--reset");
 
 resetGameBtn.addEventListener("click", (e) => {
   gameBoard.innerHTML = "";
-  draw(blocksMatrix);
+  draw(myGame.worldMetrix);
+  gameBoard.classList = "";
+  gameBoard.classList.add(`${myGame.worldMetrixBackground}`);
+
   resetTools();
   resetInventory();
 });

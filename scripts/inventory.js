@@ -1,6 +1,7 @@
 import { myGame } from "./game.js";
 import { classObj } from "./gameBoard.js";
 import { resetTools } from "./reset.js";
+import { worldsBtn } from "./worlds.js";
 
 const inventoryStone = document.querySelector(`[data-inventory="stone"]`);
 const inventoryDirt = document.querySelector(`[data-inventory="dirt"]`);
@@ -56,19 +57,22 @@ inventory.addEventListener("click", (e) => {
   myGame.clickedOnInventory = true;
   myGame.isInventoryClose = false;
   resetTools();
-  inventoryContainer.classList.toggle('display-none');
-  toolsBtn.classList.toggle('display-none');
-  closeInventory.classList.toggle('display-none');
-  inventory.classList.toggle('display-none');
+  displayNoneInventory();
 });
 
 closeInventory.addEventListener("click", (e) => { 
   myGame.isInventoryClose = true;
+  displayNoneInventory();
+});
+
+function displayNoneInventory() {
   inventoryContainer.classList.toggle('display-none');
   toolsBtn.classList.toggle('display-none');
   closeInventory.classList.toggle('display-none');
   inventory.classList.toggle('display-none');
-});
+  worldsBtn.classList.toggle('display-none');
+}
+
 
 inventoryStone.addEventListener("click", (e) => { 
   myGame.inventoryItemClickOn = inventoryObj.stone;
@@ -100,6 +104,7 @@ export function inventoryClasses(eTargetClass) {
   inventory.classList.add("border--green");
   switch (eTargetClass) {
     case classObj.stone:
+    case classObj.stoneDark:
       if (!inventoryObj.stone.itemCount) {
         inventoryStone.classList.add(eTargetClass);
       }
@@ -107,6 +112,7 @@ export function inventoryClasses(eTargetClass) {
       inventoryStoneCount.innerText = ` ${inventoryObj.stone.itemCount}`;
       break;
     case classObj.dirt:
+    case classObj.dirtDark:
       if (!inventoryObj.dirt.itemCount) {
         inventoryDirt.classList.add(eTargetClass);
       }
@@ -114,6 +120,7 @@ export function inventoryClasses(eTargetClass) {
       inventoryDirtCount.innerText = ` ${inventoryObj.dirt.itemCount}`;
       break;
     case classObj.grass:
+    case classObj.grassDark:
       if (!inventoryObj.grass.itemCount) {
         inventoryGrass.classList.add(eTargetClass);
       }
@@ -121,6 +128,7 @@ export function inventoryClasses(eTargetClass) {
       inventoryGrassCount.innerText = ` ${inventoryObj.grass.itemCount}`;
       break;
     case classObj.log:
+    case classObj.logDark:
       if (!inventoryObj.log.itemCount) {
         inventoryLog.classList.add(eTargetClass);
       }
@@ -128,6 +136,7 @@ export function inventoryClasses(eTargetClass) {
       inventoryLogCount.innerText = ` ${inventoryObj.log.itemCount}`;
       break;
     case classObj.leaves:
+    case classObj.leavesDark:
       if (!inventoryObj.leaves.itemCount) {
         inventoryLeaves.classList.add(eTargetClass);
       }

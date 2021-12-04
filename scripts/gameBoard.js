@@ -5,8 +5,9 @@ import {
   isInventoryEmpty,
   removeItemFromInventory,
 } from "./inventory.js";
+import { lightMatrix , nightMatrix } from "./worlds.js";
 
-export const gameBoard = document.querySelector(".gameBoard");
+export const gameBoard = document.querySelector("#gameBoard");
 
 export const classObj = {
   stone: "gameBoard--stone",
@@ -15,53 +16,56 @@ export const classObj = {
   log: "gameBoard--log",
   leaves: "gameBoard--leaves",
   cloud: "gameBoard--cloud",
+  stoneDark: "gameBoard--stone-dark",
+  dirtDark: "gameBoard--dirt-dark",
+  grassDark: "gameBoard--grass-dark",
+  logDark: "gameBoard--log-dark",
+  leavesDark: "gameBoard--leaves-dark",
+  cloudDark: "gameBoard--cloud-dark",
 };
 
-export const blocksMatrix = [
-  [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-  [6, 6, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-  [6, 6, 6, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 6, 6, 6, 6],
-  [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 6, 6, 6],
-  [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-  [6, 6, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-  [6, 4, 4, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-  [6, 4, 4, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 4, 6, 6, 6],
-  [6, 6, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 4, 6, 6, 6],
-  [6, 6, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 3, 6, 6, 6],
-  [2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-];
-
 export function draw(metrix) {
+  gameBoard.classList = "";
+  gameBoard.classList.add(`${myGame.worldMetrixBackground}`);
   for (let i = 0; i < metrix.length; i++) {
     for (let j = 0; j < metrix[i].length; j++) {
       const gameElement = document.createElement("div");
       switch (metrix[i][j]) {
-        case 0:
+        case 1:
           gameElement.classList.add(classObj.stone);
           break;
-        case 1:
+        case 2:
           gameElement.classList.add(classObj.dirt);
           break;
-        case 2:
+        case 3:
           gameElement.classList.add(classObj.grass);
           break;
-        case 3:
+        case 4:
           gameElement.classList.add(classObj.log);
           break;
-        case 4:
+        case 5:
           gameElement.classList.add(classObj.leaves);
           break;
-        case 5:
+        case 6:
           gameElement.classList.add(classObj.cloud);
+          break;
+        case 7:
+          gameElement.classList.add(classObj.stoneDark);
+          break;
+        case 8:
+          gameElement.classList.add(classObj.dirtDark);
+          break;
+        case 9:
+          gameElement.classList.add(classObj.grassDark);
+          break;
+        case 10:
+          gameElement.classList.add(classObj.logDark);
+          break;
+        case 11:
+          gameElement.classList.add(classObj.leavesDark);
+          break;
+        case 12:
+          gameElement.classList.add(classObj.cloudDark);
           break;
       }
       gameBoard.appendChild(gameElement);
@@ -73,7 +77,10 @@ gameBoard.addEventListener("click", (e) => {
   if (myGame.isInventoryClose) {
     switch (myGame.selectedTool) {
       case "pickaxe":
-        if (e.target.classList.value === classObj.stone) {
+        if (
+          e.target.classList.value === classObj.stone ||
+          e.target.classList.value === classObj.stoneDark
+        ) {
           inventoryClasses(e.target.classList.value);
           pickaxe.classList.remove("border--red");
           e.target.classList = "";
@@ -83,7 +90,9 @@ gameBoard.addEventListener("click", (e) => {
       case "shovel":
         if (
           e.target.classList.value === classObj.dirt ||
-          e.target.classList.value === classObj.grass
+          e.target.classList.value === classObj.grass ||
+          e.target.classList.value === classObj.dirtDark ||
+          e.target.classList.value === classObj.grassDark
         ) {
           inventoryClasses(e.target.classList.value);
           shovel.classList.remove("border--red");
@@ -94,7 +103,9 @@ gameBoard.addEventListener("click", (e) => {
       case "axe":
         if (
           e.target.classList.value === classObj.log ||
-          e.target.classList.value === classObj.leaves
+          e.target.classList.value === classObj.leaves ||
+          e.target.classList.value === classObj.logDark ||
+          e.target.classList.value === classObj.leavesDark
         ) {
           inventoryClasses(e.target.classList.value);
           axe.classList.remove("border--red");
