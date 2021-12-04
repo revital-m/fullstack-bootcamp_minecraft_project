@@ -1,6 +1,6 @@
 import { myGame } from "./game.js";
 import { classObj } from "./gameBoard.js";
-import { resetTools } from "./reset.js";
+import { resetGameBtn, resetTools } from "./reset.js";
 import { worldsBtn } from "./worlds.js";
 
 const inventoryStone = document.querySelector(`[data-inventory="stone"]`);
@@ -78,6 +78,7 @@ function displayNoneInventory() {
   closeInventory.classList.toggle("display-none");
   inventory.classList.toggle("display-none");
   worldsBtn.classList.toggle("display-none");
+  resetGameBtn.classList.toggle("display-none");
 }
 
 inventoryStone.addEventListener("click", (e) => {

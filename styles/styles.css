@@ -10,12 +10,7 @@
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-}
-
-.container {
-  margin: 0 auto;
+  background: rgb(117, 117, 117);
 }
 
 /****************** Utiltes ******************/
@@ -38,21 +33,30 @@ body {
 
 .display-flex {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.container {
+  flex-direction: row;
+}
+
+.container-game {
+  margin: 0 auto;
 }
 
 /****************** Landing Page ******************/
 .landingPage {
   background: url("../assets/img/dirt.jpg");
   justify-content: space-around;
-  height: 100%;
-  width: 87vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 .landingPage--logo {
-  height: 10vh;
+  height: 10rem;
 }
 
 .landingPage--startBtn {
@@ -68,7 +72,6 @@ body {
   padding: 3rem;
   font-size: 1.8rem;
   font-family: "NotoSans-Bold";
-  height: 60vh;
   width: 50vw;
 }
 
@@ -103,8 +106,10 @@ body {
 
 /****************** Game - btn info ******************/
 .btnInfo {
-  padding: 0 5rem;
-  background: black;
+  padding: 0 1rem;
+  background: rgb(117, 117, 117);
+  height: 100vmin;
+  width: auto;
 }
 
 .btn {
@@ -181,8 +186,8 @@ body {
 
 /****************** Game - game board ******************/
 #gameBoard {
-  height: 100%;
-  width: 50vw;
+  height: 100vmin;
+  width: 84vmin;
   display: grid;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(20, 1fr);

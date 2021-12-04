@@ -6,6 +6,7 @@ import { lightMatrix, nightMatrix } from "./worlds.js";
 
 const landingPage = document.querySelector(".landingPage");
 const startBtn = document.querySelector(".landingPage--startBtn");
+const infoBtn = document.querySelector(".btnInfo");
 
 export let myGame = {
   selectedTool: "",
@@ -21,5 +22,6 @@ export let myGame = {
 startBtn.addEventListener("click", () => {
   landingPage.classList.toggle("display-none");
   gameBoard.classList.toggle("display-none");
+  infoBtn.classList.toggle("display-none");
   draw(myGame.worldMetrix);
 });

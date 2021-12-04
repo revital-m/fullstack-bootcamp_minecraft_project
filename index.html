@@ -12,102 +12,109 @@
     />
     <link rel="stylesheet" href="./styles/my_normalize.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 500px)"
+      href="./styles/media_query.css"
+    />
     <title>Minecraft</title>
   </head>
   <body>
-    <div class="container">
-      <!----------------------- landingPage ----------------------->
-      <div class="landingPage display-flex">
-        <img
-          class="landingPage--logo"
-          src="./assets/img/Minecraft_logo.png"
-          alt="Minecraft Logo"
-        />
-        <div class="landingPage__tutorial">
-          <p>You have 3 types of tools:</p>
-          <ul>
-            <li>
-              <img src="./assets/img/pickaxe.png" alt="pickaxe" />
-              <p class="landingPage__tutorial--tools">
-                Pickaxe - for mining rocks.
-              </p>
-            </li>
-            <li>
-              <img src="./assets/img/Shovel.png" alt="Shovel" />
-              <p class="landingPage__tutorial--tools">
-                Shovel - for digging dirt.
-              </p>
-            </li>
-            <li>
-              <img src="./assets/img/axe.png" alt="axe" />
-              <p class="landingPage__tutorial--tools">
-                Axe - for cutting trees.
-              </p>
-            </li>
-          </ul>
-          <p>
-            Clicking on a tool followed by clicking on a tile in the world will
-            remove the tile, (If it is of the correct type) and add it to the
-            inventory.
-          </p>
-          <p>
-            You can also click on the tile in the inventory and place it back in
-            the world.
-          </p>
-          <p class="landingPage__tutorial--enjoy">Enjoy!</p>
+    <div class="container display-flex">
+      <div class="container-game">
+        <!----------------------- landingPage ----------------------->
+        <div class="landingPage display-flex">
+          <img
+            class="landingPage--logo"
+            src="./assets/img/Minecraft_logo.png"
+            alt="Minecraft Logo"
+          />
+          <div class="landingPage__tutorial">
+            <p>You have 3 types of tools:</p>
+            <ul>
+              <li>
+                <img src="./assets/img/pickaxe.png" alt="pickaxe" />
+                <p class="landingPage__tutorial--tools">
+                  Pickaxe - for mining rocks.
+                </p>
+              </li>
+              <li>
+                <img src="./assets/img/Shovel.png" alt="Shovel" />
+                <p class="landingPage__tutorial--tools">
+                  Shovel - for digging dirt.
+                </p>
+              </li>
+              <li>
+                <img src="./assets/img/axe.png" alt="axe" />
+                <p class="landingPage__tutorial--tools">
+                  Axe - for cutting trees.
+                </p>
+              </li>
+            </ul>
+            <p>
+              Clicking on a tool followed by clicking on a tile in the world will
+              remove the tile, (If it is of the correct type) and add it to the
+              inventory.
+            </p>
+            <p>
+              You can also click on the tile in the inventory and place it back in
+              the world.
+            </p>
+            <p class="landingPage__tutorial--enjoy">Enjoy!</p>
+          </div>
+          <button class="landingPage--startBtn btn-hover">Start</button>
         </div>
-        <button class="landingPage--startBtn btn-hover">Start</button>
+        <!----------------------- gameBoard ----------------------->
+        <div id="gameBoard" class="display-none"></div>
       </div>
-      <!----------------------- gameBoard ----------------------->
-      <div id="gameBoard" class="display-none"></div>
-    </div>
-    <div class="btnInfo display-flex">
-      <!----------------------- worlds ----------------------->
-      <div class="btn worlds btn-hover">change world</div>
-      <div dtat-id="worlds-container" class="display-flex display-none">
-        <button data-world="lightMode" class="btn btn-hover">light mode</button>
-        <button data-world="darkMode" class="btn btn-hover">dark mode</button>
+      <div class="btnInfo display-flex display-none">
+        <!----------------------- worlds ----------------------->
+        <div class="btn worlds btn-hover">change world</div>
+        <div dtat-id="worlds-container" class="display-flex display-none">
+          <button data-world="lightMode" class="btn btn-hover">light mode</button>
+          <button data-world="darkMode" class="btn btn-hover">dark mode</button>
+        </div>
+        <!----------------------- tools ----------------------->
+        <div dtat-id="btnInfo__tools" class="display-flex">
+          <button data-tool="pickaxe" class="btn btn-hover">
+            <img src="./assets/img/pickaxe.png" alt="pickaxe" />
+            pickaxe
+          </button>
+          <button data-tool="shovel" class="btn btn-hover">
+            <img src="./assets/img/shovel.png" alt="shovel" />shovel
+          </button>
+          <button data-tool="axe" class="btn btn-hover">
+            <img src="./assets/img/axe.png" alt="axe" />axe
+          </button>
+        </div>
+        <!----------------------- inventory ----------------------->
+        <ul class="inventoryContainer display-none">
+          <li>
+            <div data-inventory="stone" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="stone">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="dirt" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="dirt">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="grass" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="grass">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="log" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="log">0</span></p>
+          </li>
+          <li>
+            <div data-inventory="leaves" class="inventory"></div>
+            <p>&Cross; <span data-inventoryCount="leaves">0</span></p>
+          </li>
+        </ul>
+        <div id="inventory" class="btn btn-hover">see inventory</div>
+        <div class="closeInventory btn-hover display-none">&Cross;</div>
+        <!----------------------- reset ----------------------->
+        <button class="btn--reset btn-hover">reset</button>
       </div>
-      <!----------------------- tools ----------------------->
-      <div dtat-id="btnInfo__tools" class="display-flex">
-        <button data-tool="pickaxe" class="btn btn-hover">
-          <img src="./assets/img/pickaxe.png" alt="pickaxe" />
-          pickaxe
-        </button>
-        <button data-tool="shovel" class="btn btn-hover">
-          <img src="./assets/img/shovel.png" alt="shovel" />shovel
-        </button>
-        <button data-tool="axe" class="btn btn-hover">
-          <img src="./assets/img/axe.png" alt="axe" />axe
-        </button>
-      </div>
-      <!----------------------- inventory ----------------------->
-      <ul class="inventoryContainer display-none">
-        <li>
-          <div data-inventory="stone" class="inventory"></div>
-          <p>&Cross; <span data-inventoryCount="stone">0</span></p>
-        </li>
-        <li>
-          <div data-inventory="dirt" class="inventory"></div>
-          <p>&Cross; <span data-inventoryCount="dirt">0</span></p>
-        </li>
-        <li>
-          <div data-inventory="grass" class="inventory"></div>
-          <p>&Cross; <span data-inventoryCount="grass">0</span></p>
-        </li>
-        <li>
-          <div data-inventory="log" class="inventory"></div>
-          <p>&Cross; <span data-inventoryCount="log">0</span></p>
-        </li>
-        <li>
-          <div data-inventory="leaves" class="inventory"></div>
-          <p>&Cross; <span data-inventoryCount="leaves">0</span></p>
-        </li>
-      </ul>
-      <div id="inventory" class="btn btn-hover">see inventory</div>
-      <div class="closeInventory btn-hover display-none">&Cross;</div>
-      <!----------------------- reset ----------------------->
-      <button class="btn--reset btn-hover">reset</button>
     </div>
   </body>
   <script src="./scripts/game.js" type="module"></script>

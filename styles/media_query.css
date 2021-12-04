@@ -1,0 +1,70 @@
+@media (max-width: 500px) {
+  html {
+    font-size: 55.5%;
+  }
+
+  .display-flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: row;
+    margin: 8vh 0;
+  }
+
+  .landingPage {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+  }
+
+  .landingPage--logo {
+    height: 10vmin;
+  }
+
+  .landingPage__tutorial {
+    padding: 1rem;
+    width: 93vw;
+  }
+
+  .landingPage--startBtn {
+    font-size: 3rem;
+  }
+
+  .btnInfo {
+    width: 100vmin;
+    height: auto;
+    padding: 2rem;
+  }
+
+  .btn--reset {
+    margin: 1rem;
+  }
+
+  .inventoryContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+
+  .inventory {
+    margin: 1rem;
+  }
+
+  .closeInventory {
+    margin: 1rem;
+  }
+
+  .inventoryContainer > li > p {
+    padding-top: 0;
+  }
+
+  .inventoryContainer > li {
+    margin: 0.5rem;
+  }
+}
