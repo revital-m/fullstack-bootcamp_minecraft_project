@@ -1,20 +1,20 @@
-/** background:
-  
-  html:
-  grid (matrix)
-  
-  js:
-  divs inside the grid, will give them different classes with the img as background.
+/\*\* background:
 
-  css:
-  class-sky: background img sky
-  class-dirt: background img dirt
-  class-leaves: background img leaves
-  class-tree: background img tree
-  class-cloud: background img cloud
-  class-grass: background img grass
-  class-stone: background img stone
-*/
+html:
+grid (matrix)
+
+js:
+divs inside the grid, will give them different classes with the img as background.
+
+css:
+class-sky: background img sky
+class-dirt: background img dirt
+class-leaves: background img leaves
+class-tree: background img tree
+class-cloud: background img cloud
+class-grass: background img grass
+class-stone: background img stone
+\*/
 
 //landing page:
 // button with eventlistner of click ~ 15min
@@ -23,8 +23,8 @@
 //main:
 // creating a 20 by 20 grid ~ 10min
 // creating elements of divs in js to the grid ~30min
-//** function that change the design of the grid  ~2hr
-// function that gets the row and column (position) of the selected div  ~1hr
+//\*\* function that change the design of the grid ~2hr
+// function that gets the row and column (position) of the selected div ~1hr
 // function that changes the class name of the selected div ~1hr
 
 //sidebar:

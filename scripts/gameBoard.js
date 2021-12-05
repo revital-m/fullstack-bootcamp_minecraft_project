@@ -117,13 +117,24 @@ gameBoard.addEventListener("click", (e) => {
   if (
     myGame.clickedOnInventory &&
     myGame.inventoryItemClickOn &&
-    myGame.inventoryItemClickOnClass
+    myGame.inventoryItemClickOnClass && (e.target.classList.value !== classObj.stone &&
+      e.target.classList.value !== classObj.stoneDark &&
+      e.target.classList.value !== classObj.dirt &&
+      e.target.classList.value !== classObj.grass &&
+      e.target.classList.value !== classObj.dirtDark &&
+      e.target.classList.value !== classObj.grassDark &&
+      e.target.classList.value !== classObj.log &&
+      e.target.classList.value !== classObj.leaves &&
+      e.target.classList.value !== classObj.logDark &&
+      e.target.classList.value !== classObj.leavesDark &&
+      e.target.classList.value !== classObj.cloud &&
+      e.target.classList.value !== classObj.cloudDark)
   ) {
-    e.target.classList = "";
-    e.target.classList.add(`${myGame.inventoryItemClickOnClass}`);
-    removeItemFromInventory(myGame.inventoryItemClickOn);
-    myGame.inventoryItemClickOnClass = "";
-    myGame.inventoryItemClickOn = "";
+      e.target.classList = "";
+      e.target.classList.add(`${myGame.inventoryItemClickOnClass}`);
+      removeItemFromInventory(myGame.inventoryItemClickOn);
+      myGame.inventoryItemClickOnClass = "";
+      myGame.inventoryItemClickOn = "";
   }
 
   isInventoryEmpty();
