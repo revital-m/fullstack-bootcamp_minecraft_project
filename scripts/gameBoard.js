@@ -1,31 +1,25 @@
 import { myGame } from "./game.js";
-import { axe, pickaxe, shovel } from "./tools.js";
+import { isCorrectTool } from "./tools.js";
 import {
   inventoryClasses,
   isInventoryEmpty,
   removeItemFromInventory,
 } from "./inventory.js";
-import { lightMatrix, nightMatrix } from "./worlds.js";
 
+//************************************************** variables: **************************************************
 export const gameBoard = document.querySelector("#gameBoard");
+export const classArr = [
+  "filterDark",
+  "gameBoard--stone",
+  "gameBoard--dirt",
+  "gameBoard--grass",
+  "gameBoard--log",
+  "gameBoard--leaves",
+  "gameBoard--cloud",
+];
 
-export const classObj = {
-  stone: "gameBoard--stone",
-  dirt: "gameBoard--dirt",
-  grass: "gameBoard--grass",
-  log: "gameBoard--log",
-  leaves: "gameBoard--leaves",
-  cloud: "gameBoard--cloud",
-  stoneDark: "gameBoard--stone-dark",
-  dirtDark: "gameBoard--dirt-dark",
-  grassDark: "gameBoard--grass-dark",
-  logDark: "gameBoard--log-dark",
-  leavesDark: "gameBoard--leaves-dark",
-  cloudDark: "gameBoard--cloud-dark",
-};
-
-export const classObj2 = ["filterDark","gameBoard--stone","gameBoard--dirt","gameBoard--grass","gameBoard--log","gameBoard--leaves","gameBoard--cloud"];
-
+//************************************************** functions: **************************************************
+// draw the board game with the choosen metrix.
 export function draw(metrix) {
   gameBoard.classList = "";
   gameBoard.classList.add(`${myGame.worldMetrixBackground}`);
@@ -33,128 +27,46 @@ export function draw(metrix) {
     for (let j = 0; j < metrix[i].length; j++) {
       const gameElement = document.createElement("div");
 
-      if (metrix[i][j] > 0 && metrix[i][j] < classObj2.length) {
-        gameElement.classList.add(classObj2[metrix[i][j]]);
+      if (metrix[i][j] > 0 && metrix[i][j] < classArr.length) {
         if (myGame.worldMetrixBackground === "gameBoard--dark-bg") {
-          gameElement.classList.add(classObj2[0]);
+          gameElement.classList.add(classArr[0]);
         }
+        gameElement.classList.add(classArr[metrix[i][j]]);
       }
       gameBoard.appendChild(gameElement);
     }
   }
 }
 
-// export function draw(metrix) {
-//   gameBoard.classList = "";
-//   gameBoard.classList.add(`${myGame.worldMetrixBackground}`);
-//   for (let i = 0; i < metrix.length; i++) {
-//     for (let j = 0; j < metrix[i].length; j++) {
-//       const gameElement = document.createElement("div");
-//       switch (metrix[i][j]) {
-//         case 1:
-//           gameElement.classList.add(classObj.stone);
-//           break;
-//         case 2:
-//           gameElement.classList.add(classObj.dirt);
-//           break;
-//         case 3:
-//           gameElement.classList.add(classObj.grass);
-//           break;
-//         case 4:
-//           gameElement.classList.add(classObj.log);
-//           break;
-//         case 5:
-//           gameElement.classList.add(classObj.leaves);
-//           break;
-//         case 6:
-//           gameElement.classList.add(classObj.cloud);
-//           break;
-//         case 7:
-//           gameElement.classList.add(classObj.stoneDark);
-//           break;
-//         case 8:
-//           gameElement.classList.add(classObj.dirtDark);
-//           break;
-//         case 9:
-//           gameElement.classList.add(classObj.grassDark);
-//           break;
-//         case 10:
-//           gameElement.classList.add(classObj.logDark);
-//           break;
-//         case 11:
-//           gameElement.classList.add(classObj.leavesDark);
-//           break;
-//         case 12:
-//           gameElement.classList.add(classObj.cloudDark);
-//           break;
-//       }
-//       gameBoard.appendChild(gameElement);
-//     }
-//   }
-// }
-
+// click on the game board, call a function to add the itme to the inventory as necessary, add an item back to the game board.
 gameBoard.addEventListener("click", (e) => {
   if (myGame.isInventoryClose) {
-    switch (myGame.selectedTool) {
-      case "pickaxe":
-        if (
-          e.target.classList.value === classObj.stone ||
-          e.target.classList.value === classObj.stoneDark
-        ) {
-          inventoryClasses(e.target.classList.value);
-          pickaxe.classList.remove("border--red");
-          e.target.classList = "";
-        } else pickaxe.classList.add("border--red");
-        break;
-
-      case "shovel":
-        if (
-          e.target.classList.value === classObj.dirt ||
-          e.target.classList.value === classObj.grass ||
-          e.target.classList.value === classObj.dirtDark ||
-          e.target.classList.value === classObj.grassDark
-        ) {
-          inventoryClasses(e.target.classList.value);
-          shovel.classList.remove("border--red");
-          e.target.classList = "";
-        } else shovel.classList.add("border--red");
-        break;
-
-      case "axe":
-        if (
-          e.target.classList.value === classObj.log ||
-          e.target.classList.value === classObj.leaves ||
-          e.target.classList.value === classObj.logDark ||
-          e.target.classList.value === classObj.leavesDark
-        ) {
-          inventoryClasses(e.target.classList.value);
-          axe.classList.remove("border--red");
-          e.target.classList = "";
-        } else axe.classList.add("border--red");
-        break;
+    if (isCorrectTool(e.target.classList)) {
+      inventoryClasses(e.target.classList);
+      e.target.classList = "";
+      if (myGame.selectedTool.classList.contains("border--red")) {
+        myGame.selectedTool.classList.remove("border--red");
+      }
+    } else {
+      myGame.selectedTool.classList.add("border--red");
     }
   }
   if (
     myGame.clickedOnInventory &&
     myGame.inventoryItemClickOn &&
-    myGame.inventoryItemClickOnClass && (e.target.classList.value !== classObj.stone &&
-      e.target.classList.value !== classObj.stoneDark &&
-      e.target.classList.value !== classObj.dirt &&
-      e.target.classList.value !== classObj.grass &&
-      e.target.classList.value !== classObj.dirtDark &&
-      e.target.classList.value !== classObj.grassDark &&
-      e.target.classList.value !== classObj.log &&
-      e.target.classList.value !== classObj.leaves &&
-      e.target.classList.value !== classObj.logDark &&
-      e.target.classList.value !== classObj.leavesDark &&
-      e.target.classList.value !== classObj.cloud &&
-      e.target.classList.value !== classObj.cloudDark)
+    myGame.inventoryItemClickOnClass &&
+    (e.target.classList.value === "" ||
+      (e.target.classList.value === "filterDark" &&
+        e.target.classList.length === 1))
   ) {
-      e.target.classList = "";
-      e.target.classList.add(`${myGame.inventoryItemClickOnClass}`);
-      removeItemFromInventory(myGame.inventoryItemClickOn);
-      myGame.inventoryItemClickOnClass = "";
-      myGame.inventoryItemClickOn = "";
+    e.target.classList = "";
+    if (myGame.worldMetrixBackground === "gameBoard--dark-bg") {
+      e.target.classList.add(classArr[0]);
+    }
+    e.target.classList.add(`${myGame.inventoryItemClickOnClass}`);
+    removeItemFromInventory(myGame.inventoryItemClickOn);
+    myGame.inventoryItemClickOnClass = "";
+    myGame.inventoryItemClickOn = "";
   }
 
   isInventoryEmpty();

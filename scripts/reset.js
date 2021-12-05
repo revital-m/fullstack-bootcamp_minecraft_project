@@ -9,20 +9,23 @@ import {
   toolsBtn,
 } from "./inventory.js";
 import { pickaxe, shovel, axe } from "./tools.js";
-import { lightMatrix, nightMatrix } from "./worlds.js";
+import { lightMatrix } from "./worlds.js";
 
+//************************************************** variables: **************************************************
 export const resetGameBtn = document.querySelector(".btn--reset");
 
+//************************************************** functions: **************************************************
+// click to reset the board game.
 resetGameBtn.addEventListener("click", (e) => {
   gameBoard.innerHTML = "";
   draw(myGame.worldMetrix);
   gameBoard.classList = "";
   gameBoard.classList.add(`${myGame.worldMetrixBackground}`);
-
   resetTools();
   resetInventory();
 });
 
+// reset the tools border.
 export function resetTools() {
   myGame.selectedTool = "";
   pickaxe.classList.remove("border--red");
@@ -33,16 +36,19 @@ export function resetTools() {
   axe.classList.remove("border--blue");
 }
 
+// reset inventory and empty it.
 export function resetInventory() {
   myGame.clickedOnInventory = false;
   myGame.inventoryItemClickOn = "";
   myGame.inventoryItemClickOnClass = "";
-  resetItemInInventory(inventoryObj.stone);
-  resetItemInInventory(inventoryObj.dirt);
-  resetItemInInventory(inventoryObj.grass);
-  resetItemInInventory(inventoryObj.log);
-  resetItemInInventory(inventoryObj.leaves);
+
+  resetItemInInventory(inventoryObj["gameBoard--stone"]);
+  resetItemInInventory(inventoryObj["gameBoard--dirt"]);
+  resetItemInInventory(inventoryObj["gameBoard--grass"]);
+  resetItemInInventory(inventoryObj["gameBoard--log"]);
+  resetItemInInventory(inventoryObj["gameBoard--leaves"]);
   isInventoryEmpty();
+
   if (!inventoryContainer.classList.contains("display-none")) {
     inventoryContainer.classList.add("display-none");
   }
@@ -57,6 +63,7 @@ export function resetInventory() {
   }
 }
 
+// reset each item in the inventory.
 function resetItemInInventory(item) {
   item.itemCount = 0;
   item.isEmpty = true;
