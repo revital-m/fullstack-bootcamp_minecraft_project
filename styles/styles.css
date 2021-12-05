@@ -204,48 +204,52 @@ body {
 .gameBoard--cloud {
   background: white;
 }
-
+/* 
 .gameBoard--cloud-dark {
   background: rgb(163, 163, 163);
-}
+} */
 
 .gameBoard--dirt {
   background: url("../assets/img/dirt.jpg") no-repeat center center/cover;
 }
-
+/* 
 .gameBoard--dirt-dark {
   background: url("../assets/img/dirt-dark.jpg") no-repeat center center/cover;
-}
+} */
 
 .gameBoard--grass {
   background: url("../assets/img/mcdirt.jpg") no-repeat center center/cover;
 }
-
+/* 
 .gameBoard--grass-dark {
   background: url("../assets/img/mcdirt-dark.jpg") no-repeat center center/cover;
-}
+} */
 
 .gameBoard--log {
   background: url("../assets/img/wood.jpg") no-repeat center center/cover;
 }
-
+/* 
 .gameBoard--log-dark {
   background: url("../assets/img/wood-dark.jpg") no-repeat center center/cover;
-}
+} */
 
 .gameBoard--stone {
   background: url("../assets/img/cobblestone.jpg") no-repeat center center/cover;
 }
 
-.gameBoard--stone-dark {
+/* .gameBoard--stone-dark {
   background: url("../assets/img/cobblestone-dark.jpg") no-repeat center
     center/cover;
-}
+} */
 
 .gameBoard--leaves {
   background: url("../assets/img/leaves.png") no-repeat center center/cover;
 }
-
+/* 
 .gameBoard--leaves-dark {
   background: url("../assets/img/leaves-dark.png") no-repeat center center/cover;
+} */
+
+.filterDark {
+  filter: brightness(0.6);
 }
